@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNS - Цахим номын сан</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #2E5B9A;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        .header-left, .header-right {
+            display: flex;
+            align-items: center;
+        }
+        .search-bar {
+            padding: 10px;
+            border-radius: 25px;
+            border: none;
+            width: 250px;
+            margin-left: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        .search-bar:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(46, 91, 154, 0.5);
+        }
+        .header-right button {
+    margin-left: 15px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1E3A72;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center; /* Бичиг болон сумыг төвлөрүүлэх */
+    justify-content: center;
+}
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px; /* Хэсэг хоорондын зай */
+    margin-top: 20px;
+}
+
+.books-section, .category-section {
+    flex: 1; /* Тэгш зайг авч байна */
+}
+
+.category-toggle {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    color: #2E5B9A;
+    transition: color 0.3s ease;
+}
+
+.category-toggle .arrow {
+    margin-left: 10px;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.category-toggle:hover {
+    color: #1E3A72;
+}
+
+.category-section .categories {
+    display: none; /* Эхлээд харагдахгүй байна */
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.category-section:hover .categories {
+    display: flex; /* Курсор очих үед ангилалыг харуулах */
+}
+
+.category-section:hover .arrow {
+    transform: rotate(90deg); /* Сумны эргэх хөдөлгөөн */
+}
+
+.category {
+    background-color: #2E5B9A;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.category:hover {
+    background-color: #1E3A72;
+}
+
+
+
+.header-right button::after {
+    content: '→'; /* Сумны дүрс */
+    font-size: 14px;
+    color: white;
+    margin-left: 8px; /* Сумны болон бичгийн хооронд зай нэмэх */
+}
+
+        .header-right button:hover {
+            background-color: #000080;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        .books-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .book {
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            width: 180px;
+            text-align: center;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        .book p {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2E5B9A;
+            margin-top: 10px;
+        }
+
+        .book em {
+            font-style: italic;
+            color: #555555;
+            font-size: 14px;
+        }
+
+        .book img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .footer-container {
+            background-color: #2E5B9A;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+        .footer-container div {
+            flex: 1;
+            min-width: 300px;
+        }
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            gap: 20px;
+        }
+        .footer-links p {
+            margin: 5px 0;
+        }
+        .category {
+            background-color: #2E5B9A;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            padding: 5px;
+            border-radius: 5px;
+            width: 180px;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <h2>📚 UNS - Цахим Номын Сан</h2>
+            <input type="text" class="search-bar" placeholder="Хайлт хийх">
+        </div>
+        <div class="header-right">
+            <button onclick="location.href='order.html'">Захиалга шалгах</button>
+            <button onclick="location.href='login.html'">Нэвтрэх</button>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h3>Онцлох ном</h3>
+        <div class="books-section">
+            <div class="book">
+                <img src="book1.png" alt="Монгол хүний товчоо">
+                <p>Монгол хүний товчоо</p>
+                <p><em>Зохиолч: Б.Найдалмаа</em></p>
+            </div>
+            <div class="book">
+                <img src="book2.png" alt="Монгол хүн">
+                <p>Монгол хүн</p>
+                <p><em>Зохиолч: Д.Нацагдарж</em></p>
+            </div>
+            <div class="book">
+                <img src="book3.png" alt="Райтын ах дүүс">
+                <p>Райтын ах дүүс</p>
+                <p><em>Зохиолч: Дэвид Маккалоу</em></p>
+            </div>
+            <div class="book">
+                <img src="book4.png" alt="Манай гэрийн нууц">
+                <p>Манай гэрийн нууц</p>
+                <p><em>Зохиолч: Э.Амарзаяа</em></p>
+            </div>
+            <div class="book">
+                <img src="book5.png" alt="Манай гэрийн нууц">
+                <p>Монголын нууц товчоо</p>
+                <p><em>Зохиолч: Г.Мягмарсамбуу</em></p>
+            </div>
+            <div class="category-section">
+                <div class="category-toggle">
+                    <span>Ангилал</span>
+                    <span class="arrow">→</span>
+                </div>
+                <div class="categories">
+                    <div class="category">Түүх</div>
+                    <div class="category">Уран зохиол</div>
+                    <div class="category">Шинжлэх ухаан</div>
+                    <div class="category">Нийгэм</div>
+                    <div class="category">Технологи</div>
+                </div>
+    
+        </div>
+        </div>
+        
+        <h3>Шинээр нэмэгдсэн ном</h3>
+        <div class="books-section">
+            <div class="book">
+                <img src="book1.png" alt="Монгол хүний товчоо">
+                <p>Монгол хүний товчоо</p>
+                <p><em>Зохиолч: Б.Найдалмаа</em></p>
+            </div>
+            <div class="book">
+                <img src="book2.png" alt="Монгол хүн">
+                <p>Монгол хүн</p>
+                <p><em>Зохиолч: Д.Нацагдарж</em></p>
+            </div>
+            <div class="book">
+                <img src="book3.png" alt="Райтын ах дүүс">
+                <p>Райтын ах дүүс</p>
+                <p><em>Зохиолч: Дэвид Маккалоу</em></p>
+            </div>
+            <div class="book">
+                <img src="book4.png" alt="Манай гэрийн нууц">
+                <p>Манай гэрийн нууц</p>
+                <p><em>Зохиолч: Э.Амарзаяа</em></p>
+            </div>
+            <div class="book">
+                <img src="book5.png" alt="Манай гэрийн нууц">
+                <p>Монголын нууц товчоо</p>
+                <p><em>Зохиолч: Г.Мягмарсамбуу</em></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-container">
+        <div>
+            <h2>📚 UNS - Цахим Номын Сан</h2>
+            <p>Улаанбаатар хот, Сүхбаатар дүүрэг, Тээврийн гудамж- Нарны зам</p>
+        </div>
+        <div class="footer-links">
+            <p><strong>ТАНИЛЦУУЛГА | МЭДЭЭ МЭДЭЭЛЭЛ | ЗОХИОЛЧИД</strong></p>
+            <p><strong>ҮЙЛЧИЛГЭЭНИЙ НӨХЦӨЛ | ТӨЛБӨР ТӨЛӨЛТ | БУЦААЛТ</strong></p>
+        </div>
+        <div>
+            <p>☎ +976 7006-4343 | 📧 info@uns.mn</p>
+            <p>🔵 🔴 🟠</p>
+        </div>
+    </div>
+</body>
+</html>
+    

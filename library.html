@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нэвтрэх</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(243, 240, 240);
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding: 20px;
+        }
+        .login-container {
+            background: #2E5B9A;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 320px;
+            color: white;
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+        input {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 25px; /* Дугариг хэлбэр */
+            font-size: 16px;
+            margin-bottom: 10px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        input:focus {
+            border-color: #2E5B9A;
+            box-shadow: 0 0 5px rgba(46, 91, 154, 0.5);
+        }
+        input::placeholder {
+            color: #aaa; /* placeholder-ийн өнгийг нэмэх */
+            font-style: italic;
+        }
+        .login-btn {
+            background-color: #000080;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        .login-btn:hover {
+            background-color: #00004d;
+        }
+        .side-image {
+            width: 350px; /* Зургийн хэмжээг тохируулна */
+            border-radius: 10px;
+            object-fit: cover;
+            height: 350px; /* Тогтмол өндөр */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            <img src="zurag.jpg" alt="UNS Logo" width="80" style="margin-bottom: 15px;">
+            <h2>Цахим Номын Сан</h2>
+            <p style="font-size: 16px; color: #e0e0e0;">Тавтай морилно уу, нэвтэрч орно уу</p>
+            <div class="input-group">
+                <input type="email" placeholder="Мэйл хаяг" required>
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="Нууц үг" required>
+            </div>
+            <button class="login-btn" onclick="redirectToBooks()">Нэвтрэх</button>
+        </div>
+        <img src="1.png" alt="Номын зураг" class="side-image">
+    </div>
+    
+    <script>
+        function redirectToBooks() {
+            window.location.href = "main.html"; // Номын жагсаалт харах хуудас
+        }
+    </script>
+</body>
+</html>
